@@ -49,7 +49,7 @@
 [Field: Adders_P1_LP1_L1_Fi1]
 	
 	Set as		: $companyName
-	Indent		: 2
+	Indent		: 2.50
 	Full Width	: Yes
 	Style		: Normal Bold
 	
@@ -523,7 +523,7 @@
 	
 	Use			: Amount Field
 	Set as		: $Amount;$SetEIValueTotal;:@CIValTotal:@EIValTotal:@VchVAlTotal
-	
+;========================================================================================	
 	
 	
 	
