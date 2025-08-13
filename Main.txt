@@ -1,0 +1,591 @@
+[#Field : default]
+	
+	Add		: Tooltip	: $$DescName
+	
+[#Form: SalesColor]
+ 
+	Option 			: Fromone  : @@IsSales 
+	
+
+[!Form: Fromone] 
+	
+	Delete			: Print			:  Printed Invoice
+	Add 			: print 		:  MainReport
+ 
+[Report: MainReport]
+
+	Title			: "M-"	
+	Use				: Printed Invoice
+	Delete			: Form
+	Add				: Form		: M Elctranic HUB
+	Object			: Voucher	: ##VoucherID
+	Set 			: SVPrintOrientation: $$SysName:Portrai
+	
+[Form: M Elctranic HUB]
+	
+	Top Part		: Top_Part_P1_Invoie, Com_Data_P2,Bi_Sh_P2,Addres_P4
+	Part			: Itams_part_P11,SubTotal_Mid_P2
+	Bottom Part		: Tax_Bottom_Part1
+	
+	
+
+
+[Part: Top_Part_P1_Invoie]
+	
+	Left Part	:	Adders_P1_LP1
+	
+[Part: Adders_P1_LP1]
+	
+	Height		: 15 % Page
+	Width		: 100 % Page
+	Border		: Thin Box
+	Line		: Adders_P1_LP1_L1,Adders_P1_LP1_L2,Adders_P1_LP1_L3,Adders_P1_LP1_L4
+	
+[Line: Adders_P1_LP1_L1]
+	
+	Space Top	: 1
+	Field		: Adders_P1_LP1_L1_Fi1
+	
+[Field: Adders_P1_LP1_L1_Fi1]
+	
+	Set as		: $companyName
+	Indent		: 2
+	Full Width	: Yes
+	Style		: Normal Bold
+	
+[Line: Adders_P1_LP1_L2]
+	
+	Space Top	: 0.50
+	Field		: Adders_P1_LP1_L2_Fi2
+	
+[Field: Adders_P1_LP1_L2_Fi2]
+	
+	Set as		: $Address
+	Indent		: 2
+	Full Width	: Yes
+	
+[Line: Adders_P1_LP1_L3]
+	
+	Space Top	: 0.50
+	Field		: Adders_P1_LP1_L3_Fi3
+	
+[Field: Adders_P1_LP1_L3_Fi3]
+	
+	Set as		:$ConsigneeStateName
+	Indent		: 2
+	Full Width	: Yes
+	
+[Line: Adders_P1_LP1_L4]
+	
+	Space Top	: 0.50
+	Space Bottom: 2
+	Field		: Adders_P1_LP1_L4_Fi4,Invoice_RP1_Fi1
+	
+	
+[Field: Adders_P1_LP1_L4_Fi4]
+	
+	Set as		: $ConsigneeCountryName
+	Indent		: 2
+	Full Width	: Yes
+	
+	
+[Field: Invoice_RP1_Fi1]
+	
+	Set as		: "INVOICE"
+	Style		: Extra Large Bold
+	Indent		: 4
+	
+[Part: Com_Data_P2]
+	
+	Left Part		: Com_Data_LP1
+	Right Part		: Com_Data_RP1
+	
+[Part: Com_Data_LP1]
+	
+	Height		: 17 % Page
+	Width		: 50 % Page
+	Border		: Thin Box
+	Line		: Com_Data_P1_L1,Com_Data_P1_L2,Com_Data_P1_L3,Com_Data_P1_L4
+	
+[Line: Com_Data_P1_L1]
+	
+	Space Top	: 1
+	Field		: Com_Data_P1_L1_Fi1,Com_Data_P1_L1_Fi2
+	
+[Field: Com_Data_P1_L1_Fi1]
+	
+	Set as		:"Invoice Date										:"
+	Indent		: 2
+	
+[Field: Com_Data_P1_L1_Fi2]
+	
+	Set as		: $VoucherNumber
+	Indent		: 1
+	
+[Line: Com_Data_P1_L2]
+	
+	Space Top	: 0.50
+	Field		: Com_Data_P1_L2_Fi2,Com_Data_P1_L2_Fi3
+	
+[Field: Com_Data_P1_L2_Fi2]
+	
+	Set as		: "Invoice Date										:"
+	Indent		: 2
+	
+[Field: Com_Data_P1_L2_Fi3]
+	
+	Set as		: $Date
+	Indent		: 0.50
+	
+[Line: Com_Data_P1_L3]
+	
+	Space Top	: 0.50
+	Field		: Com_Data_P1_L3_Fi3,Com_Data_P1_L3_Fi4
+	
+[Field: Com_Data_P1_L3_Fi3]
+	
+	Set as		: "Terms																			:"
+	Indent		: 2
+	
+[Field: Com_Data_P1_L3_Fi4]
+	
+	Set as		: "Due On Receipt"
+	Indent		: 0.90
+	
+[Line: Com_Data_P1_L4]
+	
+	Space Top	: 0.50
+	Field		: Com_Data_P1_L4_Fi4,Com_Data_P1_L4_Fi5
+	
+	
+[Field: Com_Data_P1_L4_Fi4]
+	
+	Set as		: "Due Date														:"
+	Indent		: 2
+	
+[Field: Com_Data_P1_L4_Fi5]
+	
+	Set as		: $Date
+	Indent		: 1
+	
+[Part: Com_Data_RP1]
+	
+	Height		: 17 % Page
+	Width		: 50 % Page
+	Border		: Thin Box
+	Line		: Com_Data_RP1_L1
+	
+[Line: Com_Data_RP1_L1]
+	
+	Space Top	: 1
+	Field		: Com_Data_RP1_L1_Fi1
+	
+[Field: Com_Data_RP1_L1_Fi1]
+	
+	Set as		: ""
+	
+[Part: Bi_Sh_P2]
+	
+	Left Part	: Bill_To_LP1
+	Right Part	: ShipTo_RP1
+	
+[Part: Bill_To_LP1]
+	
+	Height		: 5 % Page
+	Width		: 50 % Page
+	Border		: Thin Box
+	Line		: Bi_Sh_P1_L1
+	
+[Line: Bi_Sh_P1_L1]
+	
+	Space Top	: 1
+	Field		: Bi_Sh_P1_L1_Fi1
+	
+[Field: Bi_Sh_P1_L1_Fi1]
+	
+	Set as		: "Bill To"
+	Indent		: 2
+	Style		: Normal Bold
+	
+[Part: ShipTo_RP1]
+	
+	Height		: 5 % Page
+	Width		: 50 % Page
+	Border		: Thin Box
+	Line		: ShipTo_RP1_L1
+	
+[Line: ShipTo_RP1_L1]
+	
+	Space Top	: 1
+	Field		: ShipTo_RP1_L1_Fi1
+	
+[Field: ShipTo_RP1_L1_Fi1]
+	
+	Set as		: "Ship To"
+	Indent		: 2
+	Style		: Normal Bold
+	
+[Part: Addres_P4]
+	
+	Left Part	: Bi_LP1
+	Right Part	: Sh_RP1
+	
+[Part: Bi_LP1]
+	
+	Height		: 17 % Page
+	Width		: 50 % Page
+	Border		: Thin Box
+	Line		: Addres_P4_L1,Addres_P4_L2,Addres_P4_L3,/*Addres_P4_L4*/
+	/*Vertical	: Yes
+	Scroll		: Vertical
+	Float		: No
+	Repeat		: Addres_P4_L2 : Inventory Entries*/
+[Line: Addres_P4_L1]
+	
+	Space Top	: 2
+	Field		: Addres_P4_L1_Fi1
+	
+[Field: Addres_P4_L1_Fi1]
+	
+	Set as		: $PartyName
+	Indent	: 	: 2
+	Full Width	: Yes
+	
+[Line: Addres_P4_L2]
+	
+	Space Top	: 0.50
+	Field		: Addres_P4_L2_Fi2
+	
+[Field: Addres_P4_L2_Fi2]
+	
+	Set as		: $Address
+	Indent		: 2
+	Full Width	: Yes
+	
+[Line: Addres_P4_L3]
+	
+	Space Top	: 0.50
+	Field		: Addres_P4_L3_Fi3
+	
+[Field: Addres_P4_L3_Fi3]
+	
+	Set as		: $StateName
+	Indent		: 2
+	Full Width	: Yes
+	
+[Line: Addres_P4_L4]
+	
+	Space Top	: 0.50
+	Field		: Addres_P4_L4_Fi4
+	
+[Field: Addres_P4_L4_Fi4]
+	
+	Set as		: "Mqin Rode"
+	Indent		: 2
+	Full Width	: Yes
+	
+[Part: Sh_RP1]
+	
+	Height		: 17 % Page
+	Width		: 50 % Page
+	Border		: Thin Box
+	Line		: Sh_RP1_L1,Sh_RP1_L2,Sh_RP1_L3
+	
+[Line:  Sh_RP1_L1]
+	
+	Space Top	: 1
+	Field		:  Sh_RP1_L1_Fi1
+	
+[Field: Sh_RP1_L1_Fi1]
+	
+	Set as		: $BasicBuyerName
+	Indent		: 2
+	Full Width	: Yes
+	
+[Line: Sh_RP1_L2]
+	
+	Space Top	: 0.50
+	Field		: Sh_RP1_L2_Fi2
+	
+[Field: Sh_RP1_L2_Fi2]
+	
+	Set as		: $BasicBuyerAddress
+	Indent		: 2
+	Full Width	: Yes	
+	
+[Line: Sh_RP1_L3]
+	
+	Space Top	: 0.50
+	Field		: Sh_RP1_L3_Fi3
+	
+[Field: Sh_RP1_L3_Fi3]
+	
+	Set as		: $ConsigneeStateName
+	Indent		: 2
+	Full Width	: Yes
+	
+[Part: Itams_part_P11]
+	
+	/*Height		: 30 % Page*/
+	Width		: 100  % page
+	Border		: Thin Box
+	Line		: Itams_part_P1_L1,Sno_P1_L12
+	Common Border	: Yes
+	Vertical	: Yes
+	Scroll		: Vertical
+	Float		: No
+	Repeat		: Sno_P1_L12	: Inventory Entries
+	Total		: Amount_P1_L1_Fi6
+
+	
+[Line: Itams_part_P1_L1]
+	
+	Space Top	: 1
+	Border		: Thin Bottom
+	Space Bottom: 1
+	Field		: Sno_part_P1_L1_Fi1,Itams_part_P1_L1_Fi2,Qty_Part_P1_L1_Fi3,RatePer_Part_P1_L1_Fi4, AmountPart_P1_L1_Fi5
+	
+[Field: Sno_part_P1_L1_Fi1]
+	
+	Set as		: "#"
+	Width		: 5 % page
+	Border		: Thin Right
+	Indent		: 1.90
+	Style		: Normal Bold
+	
+[Field: Itams_part_P1_L1_Fi2]
+	
+	Set as		: "Items & Description"
+	Border		: Thin Right
+	Width		: 60 % Page
+	Indent		: 2
+	Style		: Normal Bold
+	
+[Field: Qty_Part_P1_L1_Fi3]
+	
+	Set as		: "Qty"
+	Border		: Thin Right
+	Width		: 10 % Page
+	Style		: Normal Bold
+	Indent		: 2.50
+	
+[Field: RatePer_Part_P1_L1_Fi4]
+	
+	Set as		: "RatePer"
+	Border		: Thin Right
+	Width		: 10 % page
+	Style		: Normal Bold 
+	Indent		: 1
+
+	
+[Field: AmountPart_P1_L1_Fi5]
+	
+	Set as		: "Amount"
+	Style		:  Normal Bold 
+	Indent		: 4.50
+	
+[Line: Sno_P1_L12]
+	
+	Space Top	: 1
+	Space Bottom: 1
+	Border		: Thin Bottom
+	Field		: Sno_P1_L12_Fi2,ItemName_P1_Fi3,Qty_P1_L4,Rate_P1_L5,Amount_P1_L1_Fi6
+	
+[Field: Sno_P1_L12_Fi2]
+	
+	Set as		: "1"
+	Width		: 5 % page
+	Indent		: 1.90                                  	
+[Field: ItemName_P1_Fi3]
+	
+	Set as		:  $StockItemName 
+	Width		: 60 % Page
+	Indent		: 2
+	
+[Field: Qty_P1_L4]
+	
+	Set as		: $BILLEDQTY
+	Width		: 10 % Page
+	Indent		: 2.50
+	
+[Field: Rate_P1_L5]
+	
+	Set as		:  $rate
+	Width		: 10 % page
+	Indent		: 1
+	
+[Field: Amount_P1_L1_Fi6]
+	
+	Use			: Amount Field
+	Set as		: $Amount
+	Align		: Right
+	
+[Part: SubTotal_Mid_P2]
+	
+	Part		: SubTotal_P1
+	Left Part	: TotalValue_LP1
+[Part:SubTotal_P1]	
+	
+	Height		: 3 % Page
+	Width		: 85 % Page
+	Border		: Thin Bottom
+	Line		: SubTotal_Mid_P2_L1
+	
+	
+[Line:  SubTotal_Mid_P2_L1]
+	
+	Space Top	: 1
+	Field		: SubTotal_Mid_P2_L1_Fi1
+	
+[Field: SubTotal_Mid_P2_L1_Fi1]
+	
+	Set as		: "SUBTOTAL"
+	Full Width	: Yes
+	Style		: Normal Bold	
+	Space Left	: 74 % Page
+	
+[Part:  TotalValue_LP1]
+	
+	Height		: 3 % Page
+	Width		: 15 % Page
+	Border		: Thin Box
+	Line		:  TotalValue_LP1_L1
+	
+[Line: TotalValue_LP1_L1]
+	
+	Space Top	: 1
+	Field		: TotalValue_LP1_L1_Fi1
+	
+[Field: TotalValue_LP1_L1_Fi1]
+	
+	Use			: Amount Field
+	Set as		: $$Total:Amount_P1_L1_Fi6
+	Full Width	: Yes
+	Align		: Right
+	Style		: Normal Bold
+	
+[Part: Tax_Bottom_Part1]
+	
+	Right Part	: CSGT_B_P1
+	
+[Part: CSGT_B_P1]
+	
+	Line		: CSGT_B_P1_L1,SGST_B_P1,TotalAmountWithTAx_L3
+	
+[Line: CSGT_B_P1_L1]
+	
+	Space Top	: 1
+	Field		: CSGT_B_P1_L1_Fi1,CGSTTotalValue_Fi1
+	
+[Field:  CSGT_B_P1_L1_Fi1]
+	
+	Use			: MediumPrompt
+	Set as		: $$LocaleString:$LedgerEntries[1,($$IsSysNameEqual:CGST:($GSTDutyHead:Ledger:$LedgerName))].LedgerName
+	Full Width	: Yes
+	Indent		: 80
+	
+[Field: CGSTTotalValue_Fi1]
+	
+	Use			: Amount Field
+	Set as		: $$AsAmount:$LedgerEntries[1,($$IsSysNameEqual:CGST:($GSTDutyHead:Ledger:$LedgerName))].Amount
+	
+[Line: SGST_B_P1]
+	
+	
+	Space Top	: 0.50
+	Field		: SGST_B_P1_Fi1,SGSTAMOUNT_Fi1
+	
+[Field: SGST_B_P1_Fi1]
+	
+	Use			: MediumPrompt
+	Set as		: "SGST	"
+	Full Width	: Yes
+	Indent		: 80
+	
+[Field: SGSTAMOUNT_Fi1]
+	
+	Use			: Amount Field
+	Set as		: $$AsAmount:$LedgerEntries[1,($$IsSysNameEqual:CGST:($GSTDutyHead:Ledger:$LedgerName))].Amount
+
+[Line: TotalAmountWithTAx_L3]
+	
+	Space Top	: 0.50
+	Field		: TotalAmountWithTAx_L3_Fi3,Amount_Fi5
+	
+[Field: TotalAmountWithTAx_L3_Fi3]
+	
+	/*Use			: MediumPrompt*/
+	Set as		: "Total		      :"
+	Full Width	: Yes
+	Indent		: 80
+	
+[Field: Amount_Fi5]
+	
+	Use			: Amount Field
+	Set as		: $Amount;$SetEIValueTotal;:@CIValTotal:@EIValTotal:@VchVAlTotal
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
